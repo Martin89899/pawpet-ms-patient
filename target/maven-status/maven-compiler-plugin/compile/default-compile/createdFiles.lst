@@ -1,0 +1,5 @@
+com\pawpet\mspatient\service\PatientService.class
+com\pawpet\mspatient\controller\PatientController.class
+com\pawpet\mspatient\MsPatientApplication.class
+com\pawpet\mspatient\model\Patient.class
+com\pawpet\mspatient\repository\PatientRepository.class
