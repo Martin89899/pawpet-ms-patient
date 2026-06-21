@@ -1,6 +1,7 @@
 package com.pawpet.mspatient.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.pawpet.mspatient.dto.MedicalRecordDTO;
 import com.pawpet.mspatient.model.MedicalRecord;
 import com.pawpet.mspatient.model.Patient;
@@ -17,9 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -47,6 +46,7 @@ class MedicalRecordControllerTest {
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(medicalRecordController).build();
         objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
         patient = new Patient();
         patient.setId(1L);
@@ -171,6 +171,8 @@ class MedicalRecordControllerTest {
 
     @Test
     void deleteMedicalRecord_WhenRecordExists_ShouldReturnDeleted() throws Exception {
+        org.mockito.Mockito.doNothing().when(medicalRecordService).deleteMedicalRecord(1L);
+
         mockMvc.perform(delete("/api/medical-records/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.deleted").value(true));
@@ -178,8 +180,8 @@ class MedicalRecordControllerTest {
 
     @Test
     void deleteMedicalRecord_WhenRecordNotExists_ShouldReturnNotFound() throws Exception {
-        when(medicalRecordService.deleteMedicalRecord(999L))
-                .thenThrow(new RuntimeException("Registro médico no encontrado"));
+        org.mockito.Mockito.doThrow(new RuntimeException("Registro médico no encontrado"))
+                .when(medicalRecordService).deleteMedicalRecord(999L);
 
         mockMvc.perform(delete("/api/medical-records/999"))
                 .andExpect(status().isNotFound());

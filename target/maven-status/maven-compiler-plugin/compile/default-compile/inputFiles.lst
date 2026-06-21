@@ -1,5 +1,11 @@
-C:\Users\marti\Downloads\pawpet-ms-patient-develop\src\main\java\com\pawpet\mspatient\controller\PatientController.java
-C:\Users\marti\Downloads\pawpet-ms-patient-develop\src\main\java\com\pawpet\mspatient\model\Patient.java
-C:\Users\marti\Downloads\pawpet-ms-patient-develop\src\main\java\com\pawpet\mspatient\MsPatientApplication.java
-C:\Users\marti\Downloads\pawpet-ms-patient-develop\src\main\java\com\pawpet\mspatient\repository\PatientRepository.java
-C:\Users\marti\Downloads\pawpet-ms-patient-develop\src\main\java\com\pawpet\mspatient\service\PatientService.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\config\OpenApiConfig.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\controller\MedicalRecordController.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\controller\PatientController.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\dto\MedicalRecordDTO.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\model\MedicalRecord.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\model\Patient.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\MsPatientApplication.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\repository\MedicalRecordRepository.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\repository\PatientRepository.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\service\MedicalRecordService.java
+C:\Users\marti\OneDrive\Escritorio\ms-patient\src\main\java\com\pawpet\mspatient\service\PatientService.java

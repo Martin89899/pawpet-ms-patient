@@ -1,6 +1,7 @@
 package com.pawpet.mspatient.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.pawpet.mspatient.model.Patient;
 import com.pawpet.mspatient.service.PatientService;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,9 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -42,6 +41,7 @@ class PatientControllerTest {
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(patientController).build();
         objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
         patient = new Patient();
         patient.setId(1L);
@@ -166,6 +166,8 @@ class PatientControllerTest {
 
     @Test
     void deletePatient_WhenPatientExists_ShouldReturnDeleted() throws Exception {
+        org.mockito.Mockito.doNothing().when(patientService).deletePatient(1L);
+
         mockMvc.perform(delete("/api/patients/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.deleted").value(true));
@@ -173,8 +175,8 @@ class PatientControllerTest {
 
     @Test
     void deletePatient_WhenPatientNotExists_ShouldReturnNotFound() throws Exception {
-        when(patientService.deletePatient(999L))
-                .thenThrow(new RuntimeException("Paciente no encontrado"));
+        org.mockito.Mockito.doThrow(new RuntimeException("Paciente no encontrado"))
+                .when(patientService).deletePatient(999L);
 
         mockMvc.perform(delete("/api/patients/999"))
                 .andExpect(status().isNotFound());
