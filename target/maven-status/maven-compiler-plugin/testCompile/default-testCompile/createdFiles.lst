@@ -1,4 +1,4 @@
-com\pawpet\mspatient\controller\MedicalRecordControllerTest.class
-com\pawpet\mspatient\controller\PatientControllerTest.class
-com\pawpet\mspatient\service\PatientServiceTest.class
-com\pawpet\mspatient\service\MedicalRecordServiceTest.class
+com/pawpet/mspatient/service/MedicalRecordServiceTest.class
+com/pawpet/mspatient/controller/PatientControllerTest.class
+com/pawpet/mspatient/service/PatientServiceTest.class
+com/pawpet/mspatient/controller/MedicalRecordControllerTest.class
