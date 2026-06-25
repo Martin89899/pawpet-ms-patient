@@ -57,4 +57,8 @@ public class PatientService {
         }
         patientRepository.deleteById(id);
     }
+
+    public long countPatients() {
+        return patientRepository.count();
+    }
 }
